@@ -18,19 +18,28 @@
 ##
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server ipv6only=on;
+#        allow 155.69.160.117;
+#	deny all;
+	
+	listen 8080 default_server;
+	listen [::]:8080 default_server ipv6only=on;
 
-	root /usr/share/nginx/html;
-	index index.html index.htm;
+	access_log /root/access.log;
+	error_log /root/error.log;
+	
+	# root /usr/share/nginx/html;
+	# index index.html index.htm;
 
 	# Make site accessible from http://localhost/
-	server_name localhost;
+	server_name 128.199.82.238;
 
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		# try_files $uri $uri/ =404;
+		shared /root/shared;
+		index index.html index.htm;
+		
 		# Uncomment to enable naxsi on this location
 		# include /etc/nginx/naxsi.rules
 	}
