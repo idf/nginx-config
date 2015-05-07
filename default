@@ -18,8 +18,9 @@
 ##
 
 server {
-        allow 155.69.160.117;
-#	deny all;
+        allow 155.69.160.32;
+	allow 127.0.0.1;
+	deny all;
 	
 	listen 8000 default_server;
 	listen [::]:8000 default_server ipv6only=on;
