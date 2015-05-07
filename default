@@ -18,7 +18,7 @@
 ##
 
 server {
-#        allow 155.69.160.117;
+        allow 155.69.160.117;
 #	deny all;
 	
 	listen 8000 default_server;
@@ -38,7 +38,7 @@ server {
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 		root /usr/share/nginx/downloads;
-		autoindex on;  # enable dir
+		autoindex on;  # enable dir, does not support symbolic link
 		
 		index index.html index.htm;
 		
